@@ -19,7 +19,7 @@ Supported parameters
 * id: an optional ID for the accordion
 {%- endcomment -%}
 
-<details {% if id %}id="{{ id | escape }}"{% endif %} class="{{ class }} accordion {% if size %}accordion--{{ size }}{% endif %} group" aria-expanded="{% if open %}true{% else %}false{% endif %}" is="accordion-disclosure" {% if open %}open{% endif %} {{ block.shopify_attributes }}>
+<details {% if id %}id="{{ id | escape }}"{% endif %} class="{{ class }} accordion {% if size %}accordion--{{ size }}{% endif %} group {% if block.settings.semi_collapse_content %}accordion-semi-collapsed-wrapper{% endif %}" aria-expanded="{% if open %}true{% else %}false{% endif %}" is="accordion-disclosure" {{ block.shopify_attributes }}>
   <summary>
     {%- comment -%}iOS 14 does not support flex on the summary itself, so we have to use this extra div{%- endcomment -%}
     <div class="accordion__toggle bold">
@@ -34,6 +34,11 @@ Supported parameters
 
       <span class="circle-chevron group-hover:colors group-expanded:colors group-expanded:rotate">{%- render 'icon' with 'chevron-bottom-small' -%}</span>
     </div>
+     {% if block.settings.semi_collapse_content %}
+      <div class="accordion-semi-collapsed">
+        {{ content | truncate: 300 }}
+      </div>
+    {% endif %}   
   </summary>
 
   <div class="accordion__content">
