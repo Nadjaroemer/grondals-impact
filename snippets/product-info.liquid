@@ -224,6 +224,14 @@
           {%- render 'pickup-availability', product_variant: product.selected_or_first_available_variant, form_id: product_form_id -%}
         </div>
 
+    
+    {% when 'custom_image_block' %}
+      <div>
+        <img src="{{ block.settings.image | img_url: 'medium' }}" alt="{{ block.settings.custom_text }}">
+        <p>{{ block.settings.custom_text }}</p>
+      </div>
+
+
       {%- when 'text' -%}
         {%- if block.settings.text != blank -%}
           <div class="product-info__text" {{ block.shopify_attributes }}>

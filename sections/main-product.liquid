@@ -1,5 +1,7 @@
 {%- render 'section-spacing-collapsing' -%}
 
+
+
 <style>
   #shopify-section-{{ section.id }} {
     --product-grid: auto / minmax(0, 1fr);
@@ -184,6 +186,22 @@ quick buy information in a template, that will be extracted in JS, but ensure it
       ]
     },
     {
+  "type": "custom_image_block",
+  "name": "Custom Image Block",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "custom_text",
+      "label": "Custom Text"
+    }
+  ]
+},
+    {
       "type": "sku",
       "name": "SKU",
       "limit": 1
@@ -254,7 +272,15 @@ quick buy information in a template, that will be extracted in JS, but ensure it
           "id": "collapse_content",
           "label": "Collapse content",
           "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "semi_collapse_content",
+          "label": "Make content semi-collapsed",
+          "info": "Partially visible, 3 first lines",
+          "default": false
         }
+
       ]
     },
     {
@@ -523,6 +549,11 @@ quick buy information in a template, that will be extracted in JS, but ensure it
           "id": "text",
           "label": "Text",
           "default": "<p>Share some content to your customers about your products.</p>"
+        },
+        {
+          "type": "image_picker",
+          "id": "text-icon",
+          "label": "Choose an icon"
         }
       ]
     },
