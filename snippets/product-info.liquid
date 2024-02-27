@@ -1,3 +1,15 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Slackside+One&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=La+Belle+Aurore&family=Slackside+One&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap" rel="stylesheet">
+
 {%- capture product_form_id -%}product-form-{{ product.id }}-{{ section.id }}{%- endcapture -%}
 
 <safe-sticky class="product-info">
@@ -226,11 +238,20 @@
 
     
     {% when 'custom_image_block' %}
-      <div>
-        <img src="{{ block.settings.image | img_url: 'medium' }}" alt="{{ block.settings.custom_text }}">
-        <p>{{ block.settings.custom_text }}</p>
+      <div style="display: flex; flex-direction:column;line-height: 20px;" class="reenie-beanie-regular">
+        <div style="display: flex; align-items:center; margin-right: 10px;">
+          <img src="{{ block.settings.image1 | img_url: 'small' }}" alt="{{ block.settings.custom_text }}" style="width: 40px;">
+          <p style="margin-left: 20px;">{{ block.settings.custom_text }}</p>
+        </div>
+        <div style="display: flex; align-items:center;">
+          <img src="{{ block.settings.image2 | img_url: 'small' }}" alt="{{ block.settings.custom_text2 }}" style="width: 40px;">
+          <p style="margin-left: 20px;">{{ block.settings.custom_text2 }}</p>
+        </div>
+          <div style="display: flex; align-items:center;">
+          <img src="{{ block.settings.image3 | img_url: 'small' }}" alt="{{ block.settings.custom_text3 }}" style="width: 40px;">
+          <p style="margin-left: 20px;">{{ block.settings.custom_text3 }}</p>
+        </div>
       </div>
-
 
       {%- when 'text' -%}
         {%- if block.settings.text != blank -%}
